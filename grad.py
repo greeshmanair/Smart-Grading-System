@@ -76,7 +76,7 @@ if section == "MCQ":
         mcq_responses[question] = (selected_option, correct_answer)
 
     if st.button("🔍 Evaluate MCQs"):
-        mcq_score = sum(1 for q, (s, c) in mcq_responses.items() if s == c) / len(mcq_responses) * 100
+        mcq_score = sum(1 for q, (s, c) in mcq_responses.items() if s == c) / len(mcq_responses) * 100 if mcq_responses else 0
         st.session_state["mcq_score"] = mcq_score
         st.success(f"MCQ Score: {mcq_score:.2f}%")
 
